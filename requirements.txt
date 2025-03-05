@@ -1,1 +1,82 @@
+### **📌 How to Pull AI Stock Data Using Python**
+This guide explains how to **fetch historical stock prices** for **AI stocks (NVDA, GOOG, MSFT, META, AMD)** and compare them with the **S&P 500 (market benchmark)** using **Yahoo Finance (`yfinance`)**.
 
+---
+
+### **🛠 Required Libraries**
+Before running the code, install the required Python libraries:
+```bash
+pip install yfinance pandas
+```
+
+- **`yfinance`** → Fetches stock data from Yahoo Finance.  
+- **`pandas`** → Handles data manipulation and storage.  
+- **`datetime`** → Manages date ranges for fetching stock data.  
+- **`os`** → Helps save the output file to the system.
+
+---
+
+### **📈 Step 1: Define the Stocks & Date Range**
+We will analyze **AI stocks** and compare them to the **S&P 500 (`^GSPC`)**.
+
+```python
+import yfinance as yf
+import pandas as pd
+import os
+
+# Define AI stock tickers + S&P 500
+tickers = ["META", "GOOG", "NVDA", "AMD", "MSFT", "^GSPC"]
+
+# Define a fixed date range (7 years of data)
+start_date = "2017-01-01"
+end_date = "2025-01-01"
+```
+
+---
+
+### **📊 Step 2: Fetch Stock Data from Yahoo Finance**
+Now, we use `yfinance.download()` to retrieve **adjusted closing prices** (which account for stock splits and dividends).
+
+```python
+# Download adjusted close prices for the selected stocks
+stock_data_ai = yf.download(tickers, start=start_date, end=end_date, auto_adjust=False)[["Adj Close"]]
+
+# Rename columns: Remove "Adj Close" level and keep tickers
+stock_data_ai.columns = stock_data_ai.columns.droplevel(0)
+
+# Reset index for a clean format
+stock_data_ai = stock_data_ai.reset_index()
+
+# Show the first few rows
+stock_data_ai.head()
+```
+
+✅ **Why Adjusted Close?**  
+It reflects the **true stock value** after dividends & stock splits, ensuring accurate historical comparison.
+
+---
+
+### **💾 Step 3: Save the Data to a CSV File**
+For easy access, save the stock data as a **CSV file** in your system’s **Downloads folder**.
+
+```python
+# Define the Downloads folder path dynamically
+downloads_folder = os.path.expanduser("~/Downloads/stock_data_ai.csv")
+
+# Save the stock data as CSV
+stock_data_ai.to_csv(downloads_folder, index=False)
+
+print(f"✅ File saved successfully at {downloads_folder}")
+```
+
+Now, you have **clean stock data** ready for analysis! 🎯
+
+---
+
+### **🔗 What's Next?**
+- Perform **Beta Calculation** (Market Sensitivity).
+- Use the **CAPM Model** to compare expected vs. actual returns.
+- Compute **Sharpe Ratios** for risk-adjusted performance.
+- **Visualize stock trends** to identify top AI investments.
+
+This structured code makes your **requirements and process clear** for GitHub. 🚀 Let me know if you need refinements!
