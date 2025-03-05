@@ -43,13 +43,12 @@ To download fresh data, run the `data_fetch.py` script, which will pull the late
 ## 📂 Project Structure
 ```
 📂 AI-Stocks-CAPM-Analysis/
-│── 📜 README.md               # Project Overview
-│── 📜 requirements.txt        # List of required libraries
-│── 📂 data/                   # (Optional) Sample dataset
+│── 📜 README.md              
+│── 📜 requirements.txt        # Required Libraries
 │── 📂 notebooks/              # Jupyter Notebook file
 │    ├── AI_Stocks_Analysis.ipynb
 │── 📂 visuals/                 # Images for README.md
-│── 📜 LICENSE (optional)      # Open-source license if needed
+│── 📜 LICENSE       
 ```
 
 ## ⚙️ Installation & Usage
@@ -65,16 +64,13 @@ To download fresh data, run the `data_fetch.py` script, which will pull the late
    ```bash
    jupyter notebook notebooks/AI_Stocks_Analysis.ipynb
    ```
-4. Run the cells and analyze the data!
+4. Have the necessary dataset and Run the cells and analyze the data!
 
-## 📈 Sample Visualizations
-(Add sample charts/images here to make the README visually appealing)
 
 ## 🏆 Future Improvements
 - Adding **Monte Carlo simulations** to test different market scenarios.
 - Incorporating **sector-wide AI investment trends**.
 - Enhancing **data sources** with real-time API integration.
 
-## 📢 Discussion & Next Steps
-What’s next for AI stocks? Are they still the **best bet**, or should investors be cautious? Let’s discuss! 🚀
+What’s next for AI stocks? Are they still the **best bet**, or should investors be cautious? Let’s discuss! 
 
